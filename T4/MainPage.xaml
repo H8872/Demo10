@@ -5,9 +5,98 @@
     xmlns:local="using:T4"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Width="800" Height="500">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="WhiteSmoke">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1">
+                <TextBlock HorizontalAlignment="Center" Text="Heater" FontFamily="Ravie" FontSize="70" Foreground="#FFCF6060"/>
+                <TextBlock HorizontalAlignment="Right" Text="Ultimatum" Margin="0,0,35,0" FontSize="21.333" Foreground="#FFCF6060"/>
+            </StackPanel>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Temperature:" Margin="30,3,0,10" FontSize="21.333" FontFamily="Stencil"/>
+                <TextBlock x:Name="tempTextBlock" Grid.Column="1" Text="0.00" HorizontalAlignment="Right" FontSize="21.333" Margin="0,0,35,0"/>
+                <TextBlock Grid.Row="1" Text="Humidity:" Margin="30,3,0,0" FontSize="21.333" FontFamily="Stencil"/>
+                <TextBlock x:Name="humiTextBlock" Grid.Column="1" Grid.Row="1" Text="0.00" HorizontalAlignment="Right" FontSize="21.333" Margin="0,0,35,0"/>
+            </Grid>
 
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="132"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="resultTextBox" TextAlignment="Right" Text="0" IsReadOnly="True" Grid.Row="1" Margin="35,0"/>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="32,10,0,0">
+                    <Button Margin="5" Width="74" Content="7" Background="#33B61A1A" Click="Button_Click"/>
+                    <Button Margin="5" Width="74" Content="8" Background="#33B61A1A" Click="Button_Click"/>
+                    <Button Margin="5" Width="74" Content="9" Background="#33B61A1A" Click="Button_Click"/>
+                    <Button Margin="5" Width="74" Content="X" Background="#33B61A1A" Click="exButton_Click"/>
+                </StackPanel>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="32,0,0,0">
+                            <Button Margin="5" Width="74" Content="4" Background="#33B61A1A" Click="Button_Click"/>
+                            <Button Margin="5" Width="74" Content="5" Background="#33B61A1A" Click="Button_Click"/>
+                            <Button Margin="5" Width="74" Content="6" Background="#33B61A1A" Click="Button_Click"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" Margin="32,0,0,0">
+                            <Button Margin="5" Width="74" Content="1" Background="#33B61A1A" Click="Button_Click"/>
+                            <Button Margin="5" Width="74" Content="2" Background="#33B61A1A" Click="Button_Click"/>
+                            <Button Margin="5" Width="74" Content="3" Background="#33B61A1A" Click="Button_Click"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" VerticalAlignment="Top" Orientation="Horizontal" Margin="32,0,0,0">
+                            <Button Margin="5" Width="158" Content="0" Background="#33B61A1A" Click="Button_Click"/>
+                            <Button Margin="5" Width="74" Content="," Background="#33B61A1A" Click="commaButton_Click"/>
+                        </StackPanel>
+                    </Grid>
+                    <Button Grid.Column="1" Margin="5" Width="74" Height="116" Content="ok" Background="#33B61A1A" Click="enterButton_Click"/>
+
+                </Grid>
+            </Grid>
+            <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal">
+                <RadioButton x:Name="tempRadioButton" Content="Temperature" Margin="15" IsChecked="True"/>
+                <RadioButton x:Name="humiRadioButton" Content="Humidity" Margin="15"/>
+            </StackPanel>
+            <TextBlock x:Name="errorTextBlock" Text="" Grid.Row="4" Margin="35,0,0,0" FontSize="16"/>
+        </Grid>
     </Grid>
 </Page>
